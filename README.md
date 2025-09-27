@@ -22,9 +22,9 @@ For PowerShell (if cmd above doesn’t work):
 
 4. Install dependencies
 ```cmd
-pip install -r requirements.txt
+pip install -r .\flask\requirements.txt
 ```
 5. Run the application (example: Flask, Django, or custom entrypoint)
 ```cmd
-python app.py
+python .\flask\app.py
 ```
