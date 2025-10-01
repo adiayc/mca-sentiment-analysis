@@ -2,7 +2,7 @@
 const FLASK_API_URL = 'http://localhost:5000';
 
 // Set your X API Bearer Token here
-const X_API_BEARER_TOKEN = 'X_API_BEARER_TOKEN';
+const X_API_BEARER_TOKEN = 'AAAAAAAAAAAAAAAAAAAAAPe%2B4QEAAAAATeKCg2iCNKmPUXj3bO6K5bsDPeM%3DukJCMoKenqZUChUJN7mbMitxTq0M6rrPr5agUP7K4LN5Ert1w6';
 
 // Extract post ID from X.com or Twitter.com URL
 function extractPostId(url) {

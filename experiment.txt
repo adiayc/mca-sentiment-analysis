@@ -1,0 +1,38 @@
+"""
+@app.route("/wordcloud", methods=["POST"])
+def generate_wordcloud_data():
+    try:
+        data = request.get_json()
+        comments = data.get("comments", [])
+        
+        # Debug logging
+        app.logger.info(f"Received {len(comments)} comments for word cloud")
+        
+        if not comments:
+            return jsonify({"error": "No comments provided"}), 400
+
+        # Combine and clean text
+        text = " ".join(comments).lower()
+        
+        # words = re.findall(r"\b\w+\b", text)  # basic tokenization
+
+        text = re.sub(r'[^a-zA-Z\s]', '', text)
+        words = text.split()
+        
+        # Optional: remove stopwords
+        stop_words = set(stopwords.words("english"))
+        words = [w for w in words if w not in stop_words and len(w) > 2]
+
+        # Count top 100 words
+        word_freq = Counter(words).most_common(100)
+
+        # Format for frontend
+        result = [{"text": word, "value": count} for word, count in word_freq]
+
+        return jsonify({"words": result})
+    
+    except Exception as e:
+        app.logger.error(f"Error in /wordcloud:  {str(e)}")
+        return jsonify({"error": f"Word cloud generation failed: {str(e)}"}), 500
+        
+"""
